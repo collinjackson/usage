@@ -9,12 +9,13 @@ import 'package:usage/usage.dart';
 
 Future main() async {
   runApp(new Container());
-  Analytics ga = await Analytics.create('UA-67589403-4', 'ga_test', '1.0');
+  String ga = create(); // await Analytics.create('UA-67589403-4', 'ga_test', '1.0');
+  print("ga = $ga");
   runApp(new MaterialApp(
     title: 'Usage Example',
     theme: new ThemeData.dark(),
     routes: <String, RouteBuilder>{
-      '/': (RouteArguments args) => new FlutterDemo(ga)
+      '/': (RouteArguments args) => new FlutterDemo(null)
     }
   ));
 }
@@ -36,9 +37,9 @@ class _FlutterDemoState extends State<FlutterDemo> {
   }
 
   void _handleOptIn(bool value) {
-    setState(() {
-      config.ga.optIn = value;
-    });
+    // setState(() {
+    //   config.ga.optIn = value;
+    // });
   }
 
   Widget build(BuildContext context) {
@@ -52,13 +53,13 @@ class _FlutterDemoState extends State<FlutterDemo> {
             child: new Text("Button pressed $_times times.")
           ),
           new ListItem(
-            onTap: () => _handleOptIn(!config.ga.optIn),
-            left: new Checkbox(
-              value: config.ga.optIn,
-              onChanged: _handleOptIn
-            ),
+            // onTap: () => _handleOptIn(!config.ga.optIn),
+            // left: new Checkbox(
+            //   value: config.ga.optIn,
+            //   onChanged: _handleOptIn
+            // ),
             primary: new Text("Opt in to analytics")
-          )
+          ),
         ],
         justifyContent: FlexJustifyContent.spaceAround
       ),

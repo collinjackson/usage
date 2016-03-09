@@ -45,14 +45,9 @@ final RegExp _pathRegex = new RegExp(r'file:/\S+/(\S+\.dart)');
  * send the GA information will not result in errors from the asynchronous
  * `send` methods.
  */
+String create() => impl.testMethod();
 abstract class Analytics {
-  static Future<Analytics> create(
-    String trackingId,
-    String applicationName,
-    String applicationVersion, {
-    String analyticsUrl
-  }) => impl.createAnalytics(trackingId, applicationName, applicationVersion,
-    analyticsUrl: analyticsUrl);
+  static String create() => impl.testMethod();
 
   /**
    * Tracking ID / Property ID.

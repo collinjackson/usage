@@ -4,11 +4,6 @@
 
 library usage_impl;
 
-import 'dart:async';
-
-import '../usage.dart';
-
-Future<Analytics> createAnalytics(String trackingId, String applicationName,
-  String applicationVersion, { String analyticsUrl }) {
-  throw new UnimplementedError();
+String testMethod() {
+    return "usage_impl";
 }
